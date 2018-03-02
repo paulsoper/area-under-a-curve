@@ -1,6 +1,6 @@
 /**************************************************************************
 /
-/ simpsons-rule.c
+/ simpson.c
 /
 / A program in C to calculate the area under a curve by using Simpson's
 / Rule.  This is also called a 2nd Degree Closed Newton-Cotes
