@@ -3,7 +3,7 @@
 / simpson.c
 /
 / A program in C to calculate the area under a curve by using Simpson's
-/ Rule.  This is also called a 2nd Degree Closed Newton-Cotes
+/ Rule.  This is also called the 2nd Degree Closed Newton-Cotes
 / Formula.
 /
 / Paul Soper
@@ -31,7 +31,7 @@ double f(double x)
 
 int main()
 {
-  int n = 20;        /* n = the number of segments */
+  int n = 10;        /* n = the number of segments */
   int i = 0;         /* a counter */
   double area = 0;   /* this will hold the area under the curve
     		as we sum over the areas of each segment */
@@ -55,7 +55,7 @@ int main()
     area = area + ((b-a)/6.0) * (f(a) + 4.0 * f((a+b)/2.0) + f(b));
   }
   
-  printf ("Area = %8.2f\n", area);
+  printf ("Area = %16.10f\n", area);
 
   /* We can easily check our answer, because f is just a 
      polynomial and is easily integrated, so we can solve the problem
@@ -68,7 +68,7 @@ int main()
 
      In our case that is  864 - (-4) = 868.0 */
 
-  printf ("Analytic solution:  area =  868.00\n");
+  printf ("Analytic solution:  area =  868.0000000000\n");
 
   return (0);
 }

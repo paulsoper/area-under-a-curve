@@ -3,7 +3,7 @@
 / simpson38.c
 /
 / A program in C to calculate the area under a curve by using Simpson's
-/ Three Eighths Rule.  This is also called a 3rd Degree Closed Newton-Cotes
+/ Three Eighths Rule.  This is also called the 3rd Degree Closed Newton-Cotes
 / Formula.
 /
 / Paul Soper
@@ -31,7 +31,7 @@ double f(double x)
 
 int main()
 {
-  int n = 20;        /* n = the number of segments */
+  int n = 10;        /* n = the number of segments */
   int i = 0;         /* a counter */
   double area = 0;   /* this will hold the area under the curve
     		as we sum over the areas of each segment */
@@ -53,11 +53,13 @@ int main()
     a = x1 + i * width;
     b = x1 + (i + 1) * width;
 
-    area = area + ((b-a)/8.0) * (f(a) + 3.0*f((2.0*a+b)/3)
-				 +3.0*f((a+2.0*b)/3) + f(b));
+    area = area + ((b-a)/8.0) * (f(a) +
+				 3.0 * f(a + 1.0 * (b - a)/3.0) +
+				 3.0 * f(a + 2.0 * (b - a)/3.0) +
+				 f(b));
   }
   
-  printf ("Area = %8.2f\n", area);
+  printf ("Area = %16.10f\n", area);
 
   /* We can easily check our answer, because f is just a 
      polynomial and is easily integrated, so we can solve the problem
